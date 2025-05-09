@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectIsLoading } from "../../redux/contacts/selectors";
 import { fetchContacts } from "../../redux/contacts/operations";
 import {
   selectIsLoggedIn,
@@ -9,15 +8,17 @@ import {
 import { Navigate } from "react-router-dom";
 import ContactList from "../../components/ContactList/ContactList";
 import ContactForm from "../../components/ContactForm/ContactForm";
+import { ContactEdit } from "../../components/ContactEdit/ContactEdit";
+import { selectEditContact } from "../../redux/contacts/selectors";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
 
-  const isLoading = useSelector(selectIsLoading);
-
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const isRefreshing = useSelector(selectIsRefreshing);
+
+  const editingContact = useSelector(selectEditContact);
 
   useEffect(() => {
     if (isLoggedIn && !isRefreshing) {
@@ -37,8 +38,12 @@ export default function ContactsPage() {
     <>
       <h1>Your Contacts</h1>
       <ContactForm />
-      {isLoading && <p>Loading...</p>}
-      <ContactList />
+
+      {editingContact ? (
+        <ContactEdit />
+      ) : (
+        <div>{isRefreshing ? <p>Loading...</p> : <ContactList />}</div>
+      )}
     </>
   );
 }
