@@ -1,0 +1,15 @@
+.authNav {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.LinkAuthNav {
+  color: #00bfff;
+  font-size: 20px;
+  border-radius: 0.5rem;
+  border: 2px solid #00bfff;
+  box-shadow: 0 0 4px #00bfff, 0 0 8px #00bfff, 0 0 12px #00bfff;
+  margin-top: 26px;
+  margin-right: 10px;
+  padding-left: 42px;
+}

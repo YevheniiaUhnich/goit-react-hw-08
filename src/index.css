@@ -28,7 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #cfd9df, #e2ebf0);
+  background: linear-gradient(145deg, #02565b, #023437, #010f10);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }

@@ -1,0 +1,42 @@
+.form {
+  position: absolute;
+  bottom: 40px;
+  display: grid;
+  grid-auto-flow: row;
+  justify-items: start;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 0.5rem;
+  border: 2px solid #00bfff;
+  box-shadow: 0 0 4px #00bfff, 0 0 8px #00bfff, 0 0 12px #00bfff;
+}
+.label {
+  display: grid;
+  justify-items: start;
+}
+
+.field {
+  width: 260px;
+  background: #00bfff;
+  cursor: pointer;
+}
+.field:hover {
+  background: #00bfff;
+  border: 2px solid #00bfff;
+  outline: 4px auto #009acd;
+}
+
+.field:focus .field:focus-visible {
+  background: #00bfff;
+  border: 2px solid #00bfff;
+  outline: 4px auto #009acd;
+}
+
+.btnRegistration {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  background: #00bfff;
+  color: linear-gradient(145deg, #02565b, #023437, #010f10);
+  cursor: pointer;
+}

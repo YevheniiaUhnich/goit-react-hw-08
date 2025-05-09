@@ -35,15 +35,17 @@ export const LoginForm = () => {
       <Form className={s.formLogin} autoComplete="off">
         <label className={s.labelLogin}>
           Email
-          <Field type="email" name="email" />
+          <Field type="email" name="email" className={s.field} />
         </label>
 
         <label className={s.labelLogin}>
           Password
-          <Field type="password" name="password" />
+          <Field type="password" name="password" className={s.field} />
         </label>
 
-        <button type="submit">Log In</button>
+        <button className={s.btnLogIn} type="submit">
+          Log In
+        </button>
       </Form>
     </Formik>
   );

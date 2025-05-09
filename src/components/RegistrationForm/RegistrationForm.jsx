@@ -36,20 +36,22 @@ export const RegistrationForm = () => {
       <Form className={s.form} autoComplete="off">
         <label className={s.label}>
           Username
-          <Field type="text" name="name" />
+          <Field type="text" name="name" className={s.field} />
         </label>
 
         <label className={s.label}>
           Email
-          <Field type="email" name="email" />
+          <Field type="email" name="email" className={s.field} />
         </label>
 
         <label className={s.label}>
           Password
-          <Field type="password" name="password" />
+          <Field type="password" name="password" className={s.field} />
         </label>
 
-        <button type="submit">Registration</button>
+        <button className={s.btnRegistration} type="submit">
+          Registration
+        </button>
       </Form>
     </Formik>
   );
