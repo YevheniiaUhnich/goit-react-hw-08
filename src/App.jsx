@@ -1,28 +1,69 @@
-// import { useState } from "react";
-import ContactForm from "./components/ContactForm/ContactForm";
-import SearchBox from "./components/SearchBox/SearchBox";
-import ContactList from "./components/ContactList/ContactList";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { fetchContacts } from "./redux/contactsOps";
-import { selectError, selectIsLoading } from "./redux/contactsSlice";
+import { useEffect, Suspense } from "react";
+import { fetchContacts } from "./redux/contacts/operations";
+import { selectIsRefreshing } from "./redux/auth/selectors";
+import { refreshUser } from "./redux/auth/operations";
+import { Routes, Route } from "react-router-dom";
+import { RestrictedRoute } from "./components/RestrictedRoute";
+import { PrivateRoute } from "./components/PrivateRoute";
+import Layout from "./components/Layout/Layout";
+import { selectIsLoggedIn } from "./redux/auth/selectors";
+import HomePage from "./pages/HomePage/HomePage";
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import ContactsPage from "./pages/ContactsPage/ContactsPage";
+import { AppBar } from "./components/AppBar/AppBar";
 
 export default function App() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
-  return (
-    <div>
-      <h1 className="title">Phonebook</h1>
-      <ContactForm />
-      {isLoading && !error && <b className="loading">Request in progress...</b>}
-      <SearchBox />
-      <ContactList />
-    </div>
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(fetchContacts());
+    }
+  }, [dispatch, isLoggedIn]);
+
+  return isRefreshing ? (
+    <strong>Refreshing user...</strong>
+  ) : (
+    <Layout>
+      <AppBar />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute redirectTo="/contacts" element={<LoginPage />} />
+            }
+          />
+
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                element={<RegistrationPage />}
+              />
+            }
+          />
+
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute redirectTo="/login" element={<ContactsPage />} />
+            }
+          />
+        </Routes>
+      </Suspense>
+    </Layout>
   );
 }

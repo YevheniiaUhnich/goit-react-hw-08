@@ -4,7 +4,8 @@ import * as Yup from "yup";
 import { useId } from "react";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addContacts } from "../../redux/contactsOps";
+import { addContacts } from "../../redux/contacts/operations";
+import { toast } from "react-toastify";
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -22,25 +23,31 @@ const ContactForm = () => {
       .required("Number is required to fill"),
   });
 
-  const initialValues = () => ({
+  const initialValues = {
     name: "",
     number: "",
-  });
+  };
 
-  const handleSubmit = (values, { resetForm }) => {
-    dispatch(
-      addContacts({
-        name: values.name,
-        number: values.number,
-      })
-    );
-    resetForm();
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      dispatch(
+        addContacts({
+          name: values.name,
+          number: values.number,
+        })
+      );
+      toast.success("Contact added successfully!");
+      resetForm();
+    } catch (error) {
+      console.error("Error adding contact:", error);
+      toast.error("Error adding contact. Please try again.");
+    }
   };
 
   return (
     <div className={s.wrapper}>
       <Formik
-        initialValues={initialValues()}
+        initialValues={initialValues}
         onSubmit={handleSubmit}
         validationSchema={ContactSchema}>
         <Form className={s.formWrapper}>
