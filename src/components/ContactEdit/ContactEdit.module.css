@@ -1,0 +1,35 @@
+.wrapperEdit {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  width: 320px;
+  border-radius: 0.5rem;
+  border: 2px solid #00bfff;
+  box-shadow: 0 0 2px #00bfff, 0 0 4px #00bfff, 0 0 6px #00bfff;
+}
+
+.btnEdit {
+  font-weight: 500;
+  width: 120px;
+  font-size: 14px;
+  background: #00bfff;
+  margin: 20px 0 20px 100px;
+  cursor: pointer;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  margin: 10px;
+}
+.spanEdit {
+  color: #00bfff;
+  font-weight: 500;
+}
+
+.fieldEdit {
+  border-radius: 0.3rem;
+  border: 2px solid #00bfff;
+  box-shadow: 0 0 2px #00bfff, 0 0 4px #00bfff, 0 0 6px #00bfff;
+}

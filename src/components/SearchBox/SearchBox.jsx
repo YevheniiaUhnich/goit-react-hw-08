@@ -14,14 +14,14 @@ const SearchBox = () => {
 
   return (
     <div className={s.searchWrapper}>
-      <p className={s.titleSearch}>Find contacts by name</p>
+      <p className={s.titleSearch}>Find contacts by name or number</p>
       <div className={s.inputForIcon}>
         <LiaSearchSolid className={s.iconFilter} />
         <input
           value={nameFilter}
           onChange={handleChange}
           className={s.input}
-          placeholder="Search for name..."
+          placeholder="Search for name or number"
         />
       </div>
     </div>

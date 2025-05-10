@@ -10,6 +10,7 @@ import ContactList from "../../components/ContactList/ContactList";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import { ContactEdit } from "../../components/ContactEdit/ContactEdit";
 import { selectEditContact } from "../../redux/contacts/selectors";
+import SearchBox from "../../components/SearchBox/SearchBox";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
@@ -36,13 +37,22 @@ export default function ContactsPage() {
 
   return (
     <>
-      <h1>Your Contacts</h1>
+      <h2>Your Contacts</h2>
       <ContactForm />
 
       {editingContact ? (
         <ContactEdit />
       ) : (
-        <div>{isRefreshing ? <p>Loading...</p> : <ContactList />}</div>
+        <div>
+          {isRefreshing ? (
+            <p>Loading...</p>
+          ) : (
+            <>
+              <SearchBox />
+              <ContactList />
+            </>
+          )}
+        </div>
       )}
     </>
   );

@@ -1,9 +1,8 @@
 .wrapper {
   border: 2px solid #00bfff;
-  box-shadow: 0 0 4px #00bfff, 0 0 8px #00bfff, 0 0 12px #00bfff;
+  box-shadow: 0 0 2px #00bfff, 0 0 4px #00bfff, 0 0 6px #00bfff;
   width: 320px;
-  margin-left: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   border-radius: 0.3rem;
 }
 
@@ -20,7 +19,7 @@
 }
 
 .textSpan {
-  color: #353839;
+  color: #00bfff;
   font-weight: 500;
 }
 
@@ -29,7 +28,7 @@
   height: 25px;
   border-radius: 0.3rem;
   border: 2px solid #00bfff;
-  box-shadow: 0 0 4px #00bfff, 0 0 8px #00bfff, 0 0 12px #00bfff;
+  box-shadow: 0 0 2px #00bfff, 0 0 4px #00bfff, 0 0 6px #00bfff;
 }
 
 .input:hover {
@@ -42,13 +41,15 @@
 }
 
 .btnAddContact {
-  color: #353839;
+  /* color: #353839; */
   font-weight: 500;
   width: 120px;
   font-size: 14px;
+  background: #00bfff;
   margin: 20px auto;
-  border: 2px solid #00bfff;
-  box-shadow: 0 0 4px #00bfff, 0 0 8px #00bfff, 0 0 12px #00bfff;
+  cursor: pointer;
+  /* border: 2px solid #00bfff;
+  box-shadow: 0 0 2px #00bfff, 0 0 4px #00bfff, 0 0 6px #00bfff; */
 }
 
 .errorMessage {

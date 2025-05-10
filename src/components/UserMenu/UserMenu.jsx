@@ -15,7 +15,7 @@ export const UserMenu = () => {
   return (
     <div>
       <p className={s.titleUser}>Welcome, {user?.name || "Guest"}</p>
-      <button type="button" onClick={handleLogOut}>
+      <button className={s.btnLogOut} type="button" onClick={handleLogOut}>
         Logout
       </button>
     </div>

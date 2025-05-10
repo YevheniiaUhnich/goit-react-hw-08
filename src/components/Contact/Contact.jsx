@@ -2,16 +2,17 @@ import s from "./Contact.module.css";
 import { IoPerson } from "react-icons/io5";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { deleteContacts } from "../../redux/contacts/operations";
+// import { deleteContacts } from "../../redux/contacts/operations";
 import { AiTwotoneDelete } from "react-icons/ai";
 import { VscEdit } from "react-icons/vsc";
 import { setEditContact } from "../../redux/contacts/slice";
+import { openModal } from "../../redux/modal/slice";
 
 const Contact = ({ contact }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteContacts(contact.id));
+    dispatch(openModal({ id: contact.id, name: contact.name }));
   };
 
   const handleEdit = () => {

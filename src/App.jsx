@@ -14,6 +14,7 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ContactsPage from "./pages/ContactsPage/ContactsPage";
 import { AppBar } from "./components/AppBar/AppBar";
+import { ConfirmDeleteModal } from "./components/ConfirmDeleteModal/ConfirmDeleteModal";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -64,6 +65,7 @@ export default function App() {
           />
         </Routes>
       </Suspense>
+      <ConfirmDeleteModal />
     </Layout>
   );
 }

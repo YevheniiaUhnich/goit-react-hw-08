@@ -49,7 +49,7 @@ export const ContactEdit = () => {
         validationSchema={ContactSchema}>
         <Form className={s.formEdit}>
           <label htmlFor="name" className={s.label}>
-            <span>Name</span>
+            <span className={s.spanEdit}>Name</span>
             <Field type="text" name="name" className={s.fieldEdit} />
             <ErrorMessage
               name="name"
@@ -58,7 +58,7 @@ export const ContactEdit = () => {
             />
           </label>
           <label htmlFor="number" className={s.label}>
-            <span>Number</span>
+            <span className={s.spanEdit}>Number</span>
             <Field type="tel" name="number" className={s.fieldEdit} />
             <ErrorMessage
               name="name"

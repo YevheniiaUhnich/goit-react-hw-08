@@ -2,21 +2,20 @@
   margin-bottom: 40px;
 }
 .titleSearch {
-  color: #353839;
+  color: #00bfff;
   font-weight: 500;
   font-size: 16px;
   margin: 0;
-  margin-left: 40px;
+  margin-bottom: 4px;
 }
 
 .input {
   padding-left: 40px;
-  margin-left: 40px;
-  width: 370px;
+  width: 320px;
   height: 30px;
   border-radius: 0.5rem;
   border: 2px solid #00bfff;
-  box-shadow: 0 0 4px #00bfff, 0 0 8px #00bfff, 0 0 12px #00bfff;
+  box-shadow: 0 0 2px #00bfff, 0 0 4px #00bfff, 0 0 6px #00bfff;
 }
 
 .input:hover {
@@ -34,5 +33,5 @@
   position: absolute;
   z-index: 1;
   margin-top: 10px;
-  margin-left: 54px;
+  margin-left: 20px;
 }

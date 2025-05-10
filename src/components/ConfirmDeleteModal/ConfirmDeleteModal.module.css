@@ -1,0 +1,29 @@
+.confirmWrapper {
+  width: 320px;
+  margin-bottom: 40px;
+
+  border-radius: 0.5rem;
+  border: 2px solid #00bfff;
+  box-shadow: 0 0 2px #00bfff, 0 0 4px #00bfff, 0 0 6px #00bfff;
+}
+
+.confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.titleConfirm {
+  width: 220px;
+}
+
+.btnConfirm,
+.btnCancel {
+  background: #00bfff;
+  color: linear-gradient(145deg, #02565b, #023437, #010f10);
+  cursor: pointer;
+  width: 100px;
+  margin-right: 20px;
+}

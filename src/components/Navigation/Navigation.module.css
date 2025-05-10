@@ -1,5 +1,7 @@
 .navPage {
   font-size: 26px;
+  display: grid;
+  grid-auto-flow: column;
 }
 
 .LinkNavigation {

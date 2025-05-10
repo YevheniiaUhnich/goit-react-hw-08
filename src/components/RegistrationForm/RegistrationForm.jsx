@@ -50,7 +50,7 @@ export const RegistrationForm = () => {
         </label>
 
         <button className={s.btnRegistration} type="submit">
-          Registration
+          Register
         </button>
       </Form>
     </Formik>
