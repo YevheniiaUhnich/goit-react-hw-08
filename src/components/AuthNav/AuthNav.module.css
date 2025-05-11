@@ -1,15 +1,26 @@
 .authNav {
-  display: grid;
-  grid-auto-flow: column;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
 .LinkAuthNav {
+  display: flex;
+  justify-content: center;
   color: #00bfff;
   font-size: 20px;
   border-radius: 0.5rem;
   border: 2px solid #00bfff;
   box-shadow: 0 0 2px #00bfff, 0 0 4px #00bfff, 0 0 6px #00bfff;
-  margin-top: 26px;
-  margin-right: 10px;
-  padding-left: 42px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 120px;
 }
+
+/* @media screen and (min-width: 769px) {
+  .LinkAuthNav {
+    width: 120px;
+    padding: 0;
+    display: flex;
+  }
+} */

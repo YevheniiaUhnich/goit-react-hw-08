@@ -1,8 +1,9 @@
 .formLogin {
   position: relative;
   top: 20px;
-  display: grid;
-  grid-auto-flow: row;
+  display: flex;
+  flex-direction: column;
+  width: 320px;
   justify-items: start;
   gap: 10px;
   padding: 16px;

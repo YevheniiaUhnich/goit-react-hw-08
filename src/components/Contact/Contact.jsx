@@ -1,3 +1,5 @@
+// import { Card, CardContent, Typography, IconButton, Box } from "@mui/material";
+
 import s from "./Contact.module.css";
 import { IoPerson } from "react-icons/io5";
 import { BsFillTelephoneFill } from "react-icons/bs";
@@ -7,12 +9,21 @@ import { AiTwotoneDelete } from "react-icons/ai";
 import { VscEdit } from "react-icons/vsc";
 import { setEditContact } from "../../redux/contacts/slice";
 import { openModal } from "../../redux/modal/slice";
+import { useRef } from "react";
 
 const Contact = ({ contact }) => {
   const dispatch = useDispatch();
+  const contactRef = useRef(null);
 
   const handleDelete = () => {
-    dispatch(openModal({ id: contact.id, name: contact.name }));
+    const rect = contactRef.current.getBoundingClientRect();
+    dispatch(
+      openModal({
+        id: contact.id,
+        name: contact.name,
+        position: { top: rect.top, left: rect.left },
+      })
+    );
   };
 
   const handleEdit = () => {
@@ -20,7 +31,7 @@ const Contact = ({ contact }) => {
   };
 
   return (
-    <div className={s.listItem}>
+    <div className={s.listItem} ref={contactRef}>
       <div className={s.wrapperContact}>
         <div className={s.wrapper}>
           <IoPerson className={s.icon} />

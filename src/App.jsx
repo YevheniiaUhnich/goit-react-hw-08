@@ -32,7 +32,7 @@ export default function App() {
   }, [dispatch, isLoggedIn]);
 
   return isRefreshing ? (
-    <strong>Refreshing user...</strong>
+    <strong className="refresh">Refreshing user...</strong>
   ) : (
     <Layout>
       <AppBar />

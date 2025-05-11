@@ -4,6 +4,7 @@ import {
   selectIsModalOpen,
   selectModalContactId,
   selectModalContactName,
+  selectModalPosition,
 } from "../../redux/modal/selectors";
 import { deleteContacts } from "../../redux/contacts/operations";
 import { closeModal } from "../../redux/modal/slice";
@@ -14,9 +15,16 @@ export const ConfirmDeleteModal = () => {
   const isOpen = useSelector(selectIsModalOpen);
   const contactId = useSelector(selectModalContactId);
   const contactName = useSelector(selectModalContactName);
+  const position = useSelector(selectModalPosition);
 
   if (!isOpen) return null;
 
+  const style = {
+    position: "absolute",
+    top: position.top + 220,
+    left: position.left,
+    zIndex: 1000,
+  };
   const handleConfirm = () => {
     dispatch(deleteContacts(contactId));
     dispatch(closeModal());
@@ -27,7 +35,7 @@ export const ConfirmDeleteModal = () => {
   };
 
   return (
-    <div className={s.confirmWrapper}>
+    <div className={s.confirmWrapper} style={style}>
       <div className={s.confirm}>
         <p className={s.titleConfirm}>
           Are you sure you want to delete the contact "{contactName}"?

@@ -4,6 +4,7 @@ const initialState = {
   isOpen: false,
   contactId: null,
   contactName: "",
+  position: { top: 0, left: 0 },
 };
 
 const slice = createSlice({
@@ -14,11 +15,13 @@ const slice = createSlice({
       state.isOpen = true;
       state.contactId = action.payload.id;
       state.contactName = action.payload.name;
+      state.position = action.payload.position;
     },
     closeModal(state) {
       state.isOpen = false;
       state.contactId = null;
       state.contactName = "";
+      state.position = { top: 0, left: 0 };
     },
   },
 });

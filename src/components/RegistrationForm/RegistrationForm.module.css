@@ -1,6 +1,7 @@
 .form {
   position: absolute;
   bottom: 40px;
+  width: 320px;
   display: grid;
   grid-auto-flow: row;
   justify-items: start;
